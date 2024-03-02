@@ -7,6 +7,8 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 
 bg = pg.image.load("background.jpg")
+ship = pg.image.load("shipImage.png")
+green_square_rect = ship.get_rect()
 
 score = 0
 
@@ -42,6 +44,7 @@ while run:
     text1 = f1.render("Score: " + str(score), 1, (255, 255, 255))
     scr.blit(bg, (0, 0))
     scr.blit(text1, (10, 10))
+    scr.blit(ship, green_square_rect)
     pg.draw.rect(scr, RED, red_square_rect)
     pg.draw.rect(scr, GREEN, green_square_rect)
     pg.display.flip()
