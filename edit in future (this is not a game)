@@ -1,4 +1,3 @@
-import pygame
 import pygame as pg
 from random import randrange
 
@@ -21,7 +20,7 @@ pg.mouse.set_visible(False)
 green_square_size = 32
 green_square_x = randrange(0, 800 - green_square_size)
 green_square_y = randrange(0, 600 - green_square_size)
-green_square_rect = pg.Rect(green_square_x, green_square_y, green_square_size, green_square_size)
+ship.get_rect(top_left=(green_square_x, green_square_y))
 
 f1 = pg.font.Font(None, 60)
 IsCollide = False
@@ -33,20 +32,19 @@ while run:
             run = False
             pg.quit()
 
+    for event in pg.event.get():
+        if event.type == pg.KEYDOWN:
+            if event.key == pg.K_x:
+                if IsCollide:
+                    score += 1
+                    print("Score: " + str(score))
+                    green_square_x = randrange(0, 800 - green_square_size)
+                    green_square_y = randrange(0, 600 - green_square_size)
+
     (mouse_x, mouse_y) = pg.mouse.get_pos()
     red_square_rect = pg.Rect(mouse_x - 16, mouse_y - 16, 32, 32)
 
-    if IsCollide == True:
-        for event in pg.event.get():
-            if event.type == pg.KEYDOWN:
-                if event.key == pg.X:
-                    score += 1
-                    green_square_x = randrange(0, 800 - green_square_size)
-                    green_square_y = randrange(0, 600 - green_square_size)
-                    green_square_rect.topleft = (green_square_x, green_square_y)
-
     if red_square_rect.colliderect(green_square_rect):
-        print("Score: " + str(score))
         RED = (0, 0, 255)
         IsCollide = True
     else:
