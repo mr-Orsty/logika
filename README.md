@@ -1,4 +1,4 @@
-if you have error about not installed pygame open terminal and write this command:
+dont forget to install pygame:
 
 ```
 pip install pygame
