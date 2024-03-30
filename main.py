@@ -28,7 +28,7 @@ ship_rect = ship_img.get_rect(topleft=(random.randint(0, 800 - ship_box_size), r
 f1 = pg.font.Font(None, 60)
 f2 = pg.font.Font(None, 36)
 
-click_mode = True
+click_mode = False
 run = True
 clock = pg.time.Clock()
 
