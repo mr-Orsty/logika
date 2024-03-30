@@ -1,4 +1,3 @@
-python
 import pygame as pg
 import random
 
@@ -13,7 +12,7 @@ ship_img = pg.image.load("shipImage.png")
 pg.display.set_icon(pg.image.load("shipIcon.png"))
 
 score = 0
-time_limit = 5
+time_limit = 31
 spawn_time = pg.time.get_ticks() + time_limit * 1000
 ship_timer_duration = 1000
 ship_timer = None
@@ -66,7 +65,7 @@ while run:
             final_text = f1.render("Final Score: " + str(score), 1, (255, 255, 255))
             scr.blit(final_text, ((800 - final_text.get_width()) // 2, 250))
             pg.display.flip()
-            pg.time.wait(4000)
+            pg.time.wait(2000)
             run = False
             continue
     else:
@@ -100,5 +99,4 @@ final_text = f1.render("Final Score: " + str(score), 1, (255, 255, 255))
 scr.blit(final_text, ((800 - final_text.get_width()) // 2, 250))
 pg.display.flip()
 
-pg.time.wait(4000)
 pg.quit()
